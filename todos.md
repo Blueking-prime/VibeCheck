@@ -2,13 +2,18 @@
 
 - Create console
 
-- Create select and sort algorithms
+- Create sort algorithms
+
+- Add none checks for request response
+- Also add network status checks
+
+- Add input type checks and escape methods
 
 - Add ability to save details:
 -- User and details
--- Moods
 -- Playlists created
 -- Playlist status
+-- All downloaded details should have an option to be stored locally
 
 - Command functions:
 -- Change user

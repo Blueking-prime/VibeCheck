@@ -1,15 +1,10 @@
 #!/usr/bin/python3
 '''The playlist creation module module'''
 from auth import *
-from userplaylistdata import *
+from data import *
+from algorithms import playlist_tracks, detect_temp_playlists
 
-def show_saved():
-    '''Prints out track info saved locally'''
-    results: dict = read_downloads()
-    for i in results['items']:
-        print(i['track']['name'])
-
-def create_playlist(name, publicity=False, collab=False, desc=''):
+def create_playlist(name:str, publicity:bool=False, collab:bool=False, desc:str=''):
     '''Creates a new playlist'''
     new_playlist = sp.user_playlist_create(user_id,
                                         name=name,
@@ -18,7 +13,6 @@ def create_playlist(name, publicity=False, collab=False, desc=''):
                                         description=desc)
     return new_playlist
 
-def add_playlist_songs(playlist, track_list):
+def add_playlist_songs(playlist: str, track_list: list=playlist_tracks):
     ''' Adds sorted songs to the playlist'''
-    # ! incomplete
     sp.user_playlist_add_tracks(user_id, playlist_id=playlist, tracks=track_list)

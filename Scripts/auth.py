@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import spotipy
+from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 import cred
 
@@ -7,11 +7,14 @@ import cred
 scope = "user-library-read,playlist-modify-private,playlist-modify-public"
 
 # Creates spotify client
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=cred.client_id,
+sp = Spotify(auth_manager=SpotifyOAuth(client_id=cred.client_id,
                                                client_secret=cred.client_secret,
                                                redirect_uri=cred.redirect_url,
                                                scope=scope))
 
 # Obtains user ID
-# todo: add method for obtaining user id (prolly use 'me' or something)
-user_id = ''
+user = sp.me()
+if user:
+    user_id = user['id']
+else:
+    print('Unable to identify User')

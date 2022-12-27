@@ -1,0 +1,38 @@
+{
+    "Sad": {
+        "min_BPM": 50,
+        "max_BPM": 80,
+        "scale": 0,
+        "min_intensity": 0.0,
+        "max_intensity": 0.3,
+        "min_danceability": 0.0,
+        "max_danceability": 0.5
+    },
+    "Happy": {
+        "min_BPM": 100,
+        "max_BPM": 160,
+        "scale": 1,
+        "min_intensity": 0.3,
+        "max_intensity": 0.7,
+        "min_danceability": 0.5,
+        "max_danceability": 1.0
+    },
+    "Workout": {
+        "min_BPM": 160,
+        "max_BPM": 200,
+        "scale": 1,
+        "min_intensity": 0.4,
+        "max_intensity": 1.0,
+        "min_danceability": 0.5,
+        "max_danceability": 1.0
+    },
+    "Chill": {
+        "min_BPM": 80,
+        "max_BPM": 120,
+        "scale": 2,
+        "min_intensity": 0.0,
+        "max_intensity": 0.1,
+        "min_danceability": 0.0,
+        "max_danceability": 0.2
+    }
+}
