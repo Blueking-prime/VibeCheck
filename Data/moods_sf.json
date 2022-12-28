@@ -1,0 +1,34 @@
+{
+    "Happy": [
+        "danceability",
+        "key",
+        "loudness",
+        "BPM",
+        "intensity",
+        1
+    ],
+    "Sad": [
+        "key",
+        "BPM",
+        "loudness",
+        "intensity",
+        "danceability",
+        -1
+    ],
+    "Workout": [
+        "danceability",
+        "key",
+        "loudness",
+        "intensity",
+        "BPM",
+        1
+    ],
+    "Chill": [
+        "key",
+        "BPM",
+        "danceability",
+        "loudness",
+        "intensity",
+        -1
+    ]
+}

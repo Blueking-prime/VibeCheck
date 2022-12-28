@@ -1,13 +1,10 @@
+<!-- Security -->
 - Mask credentials
 
+- Create permissions document listing permission details
+
+<!-- Extra features -->
 - Create console
-
-- Create sort algorithms
-
-- Add none checks for request response
-- Also add network status checks
-
-- Add input type checks and escape methods
 
 - Add ability to save details:
 -- User and details
@@ -22,6 +19,12 @@
 -- Create new playlist
 -- Create new mood (maybe appears when creating new playlist?)
 
-- Create permissions document listing permission details
-
 - Check trello board
+
+- When designing the command sequence remember to ask for features step by step
+
+<!-- Debugging and testing -->
+- Add none checks for request response
+- Also add network status checks
+
+- Add input type checks and escape methods

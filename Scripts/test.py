@@ -40,5 +40,11 @@ moods = {
                 }
         }
 
-with open('../Data/moods.json', 'w', encoding='utf-8') as f:
-    json.dump(moods, f, indent=4)
+mood_keys = {
+                 'Happy': ['danceability','key', 'loudness', 'BPM', 'intensity', 1],
+                 'Sad': ['key', 'BPM', 'loudness', 'intensity', 'danceability', -1],
+                 'Workout': ['danceability', 'key', 'loudness', 'intensity', 'BPM', 1],
+                 'Chill': ['key', 'BPM', 'danceability', 'loudness', 'intensity', -1]
+                }
+# with open('../Data/moods_sf.json', 'w', encoding='utf-8') as f:
+#     json.dump(mood_keys, f, indent=4)
