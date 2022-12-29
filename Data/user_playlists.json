@@ -1,0 +1,92 @@
+{
+    "href": "https://api.spotify.com/v1/users/31qy54zwk2vvssnaaukaphrniule/playlists?offset=0&limit=20",
+    "items": [
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/1lBCAqpjBacqdWVvwi4e7L"
+        },
+        "href": "https://api.spotify.com/v1/playlists/1lBCAqpjBacqdWVvwi4e7L",
+        "id": "1lBCAqpjBacqdWVvwi4e7L",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://mosaic.scdn.co/640/ab67616d0000b2730e2c4c68aaa68e24e749d8faab67616d0000b27350192d5f728fea13fb3af203ab67616d0000b273642f3d8e8208bd784d377b0dab67616d0000b273d68e7bf7f2092849bc7f2a9d",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://mosaic.scdn.co/300/ab67616d0000b2730e2c4c68aaa68e24e749d8faab67616d0000b27350192d5f728fea13fb3af203ab67616d0000b273642f3d8e8208bd784d377b0dab67616d0000b273d68e7bf7f2092849bc7f2a9d",
+            "width": 300
+          },
+          {
+            "height": 60,
+            "url": "https://mosaic.scdn.co/60/ab67616d0000b2730e2c4c68aaa68e24e749d8faab67616d0000b27350192d5f728fea13fb3af203ab67616d0000b273642f3d8e8208bd784d377b0dab67616d0000b273d68e7bf7f2092849bc7f2a9d",
+            "width": 60
+          }
+        ],
+        "name": "My Shazam Tracks",
+        "owner": {
+          "display_name": "King",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/31qy54zwk2vvssnaaukaphrniule"
+          },
+          "href": "https://api.spotify.com/v1/users/31qy54zwk2vvssnaaukaphrniule",
+          "id": "31qy54zwk2vvssnaaukaphrniule",
+          "type": "user",
+          "uri": "spotify:user:31qy54zwk2vvssnaaukaphrniule"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "ODIsMDI1YTRhNDY1NDI4NjY4YTZhNTBkY2FmNjhiYjc3OWNlODE0NWU0ZA==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/1lBCAqpjBacqdWVvwi4e7L/tracks",
+          "total": 81
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:1lBCAqpjBacqdWVvwi4e7L"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/0n2kTWaIzWGbycOxRzFldJ"
+        },
+        "href": "https://api.spotify.com/v1/playlists/0n2kTWaIzWGbycOxRzFldJ",
+        "id": "0n2kTWaIzWGbycOxRzFldJ",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273b33d46dfa2635a47eebf63b2",
+            "width": 640
+          }
+        ],
+        "name": "Favourites",
+        "owner": {
+          "display_name": "King",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/31qy54zwk2vvssnaaukaphrniule"
+          },
+          "href": "https://api.spotify.com/v1/users/31qy54zwk2vvssnaaukaphrniule",
+          "id": "31qy54zwk2vvssnaaukaphrniule",
+          "type": "user",
+          "uri": "spotify:user:31qy54zwk2vvssnaaukaphrniule"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "MywxMmIxOGFkMWUzMzU1ODFhOWM2MjY4YWVjNWYzNDk5YzhkYWE0M2Y3",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/0n2kTWaIzWGbycOxRzFldJ/tracks",
+          "total": 2
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:0n2kTWaIzWGbycOxRzFldJ"
+      }
+    ],
+    "limit": 20,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 2
+}

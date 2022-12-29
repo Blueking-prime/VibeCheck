@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import json
+
 moods = {
          'Sad': {
                  'min_BPM': 50,
@@ -48,3 +49,6 @@ mood_keys = {
                 }
 # with open('../Data/moods_sf.json', 'w', encoding='utf-8') as f:
 #     json.dump(mood_keys, f, indent=4)
+
+for index, i in enumerate(moods.keys()):
+    print('-', i)

@@ -16,8 +16,10 @@
 -- Change user
 -- Update local data
 -- Delete playlist(s)
--- Create new playlist
 -- Create new mood (maybe appears when creating new playlist?)
+-- Make Playlist creation work online
+
+- Add loading bars
 
 - Check trello board
 

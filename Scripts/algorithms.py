@@ -2,11 +2,12 @@
 '''The playlist creation module module'''
 from data import *
 
+moods: dict = load_moods()
+tracks: dict = load_track_info()
+mood_sfs = load_mood_sf()
 
 def select_tracks(mood_name:str, strictness:int):
     '''Selects the tracks to be in the playlist'''
-    moods: dict = load_moods()
-    tracks: dict = load_track_info()
     mood = moods[mood_name]
     track_list = {}
     for key, value in tracks.items():
@@ -35,11 +36,10 @@ def select_tracks(mood_name:str, strictness:int):
 def sort_tracks(tracks:dict, mood:str):
     '''Sorts the tracks in the playlist'''
     # To add custom keys, add the mood with the corresponding order of track features as a key value pair [CASE IS IMPORTANT]
-    mood_keys = load_mood_sf()
     try:
-        sf = mood_keys[mood]
+        sf = mood_sfs[mood]
     except KeyError as ke:
-        return ke
+        return 'No sfs'
     # First sorts according to primary sorting factor (sf[0])
     track_list = sorted(tracks.items(), key=lambda k: k[1][sf[0]])
     # Loops through other sorting factors, performing bubble swap twice to smooth out sharp changes
@@ -64,7 +64,6 @@ def create_mood(depth):
     ''' Create a new custom mood'''
     # todo: add mood input fields (maybe change to json edit?)
     # todo: if not json edit, move function input sections to console file
-    moods: dict = load_moods()
     new_mood = input('What should this new mood be called? ')
     if not depth:
         bpm = input('''What BPM range should this entail? (input the number)
