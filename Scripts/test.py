@@ -50,5 +50,18 @@ mood_keys = {
 # with open('../Data/moods_sf.json', 'w', encoding='utf-8') as f:
 #     json.dump(mood_keys, f, indent=4)
 
-for index, i in enumerate(moods.keys()):
-    print('-', i)
+def open_offline(playlist_name):
+    '''Adds a playlist to the list of unuploaded playlists'''
+    with open('../Data/local_playlists.json', 'r', encoding='utf-8') as f:
+        try:
+            playlist_list = json.load(f)
+        except json.decoder.JSONDecodeError:
+            playlist_list = []
+    if not playlist_name:
+        return playlist_list
+
+    playlist_list.append(playlist_name)
+    with open('../Data/local_playlists.json', 'w', encoding='utf-8') as f:
+        json.dump(playlist_list, f, indent=4)
+
+open_offline('tanger')

@@ -39,7 +39,7 @@ def sort_tracks(tracks:dict, mood:str):
     try:
         sf = mood_sfs[mood]
     except KeyError as ke:
-        return 'No sfs'
+        return ke
     # First sorts according to primary sorting factor (sf[0])
     track_list = sorted(tracks.items(), key=lambda k: k[1][sf[0]])
     # Loops through other sorting factors, performing bubble swap twice to smooth out sharp changes

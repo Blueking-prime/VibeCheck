@@ -42,15 +42,15 @@ class VCCommand(cmd.Cmd):
                 new_dict[key] = value
         return new_dict
 
-    def do_create_playlist(self, arg):
+
+    def do_new(self, arg):
         """Creates a new Playlist"""
-        args = arg.split()
-        if len(args) == 0:
+        if len(arg) == 0:
             print("** No name given **")
             print('USAGE: create [playlist name]')
             return False
 
-        name = args[0]
+        name = arg
         from_old_playlist = False
 
         while True:
@@ -64,7 +64,10 @@ class VCCommand(cmd.Cmd):
                     print('Please choose Y or N')
                     continue
                 if new_mood == 'y':
-                    self.do_create_mood(mood)
+                    mood_status = self.do_mood(mood)
+                    if mood_status == False:
+                        print('Unable to create mood (No name given)')
+                        continue
                     break
                 else:
                     print('You need to choose a mood otherwise it would just add \
@@ -75,18 +78,26 @@ class VCCommand(cmd.Cmd):
         print('')
 
         while True:
-            strict = input('How strict do you want the selection to be \
-                            lax -> strict [1/2/3/4]? ')
-            if strict not in ['1', '2', '3', '4']:
-                print('Not a valid strictness level')
+            while True:
+                strict = input('How strict do you want the selection to be \
+                                lax -> strict [1/2/3/4]? ')
+                if strict not in ['1', '2', '3', '4']:
+                    print('Not a valid strictness level')
+                    continue
+                strict = int(strict)
+                break
+            print('')
+
+
+            print('Selecting songs...')
+            tracks = algorithms.select_tracks(mood_name=mood, strictness=strict)
+            if len(tracks) == 0:
+                print('No tracks match the mood and strictness\n')
                 continue
-            strict = int(strict)
+            if len(tracks) == 0 and strict == 1:
+                print('You don\'t have any tracks that match this mood')
+                return
             break
-        print('')
-
-
-        print('Selecting songs...')
-        tracks = algorithms.select_tracks(mood_name=mood, strictness=strict)
         print('Selected!\n')
 
         while True:
@@ -131,53 +142,69 @@ class VCCommand(cmd.Cmd):
         print('')
 
         print('Creating Playlist...')
-        new_playlist = playlist.create_playlist(name=name, publicity=pub, collab=coll, desc=desc)
-        print('Adding songs to playlist...')
-        if new_playlist:
-            playlist.add_playlist_songs(new_playlist['id'], tracks=tracks) # type: ignore (I'm ignoring tis cause it doesn't notice my mood_sf checks)
-            print('Playlist Created')
-            print(f'Here\'s this link: {new_playlist["external_urls"]["spotify"]}')
+        playlist.create_playlist(name=name, tracks=tracks, publicity=pub, collab=coll, desc=desc) # type: ignore (I'm ignoring tis cause it doesn't notice my mood_sf checks)
+        if playlist.auth.network_status:
+            playlist.data.upload_new_playlist(name)
         else:
-            print('Something went wrong and the songs couldn\'t be added')
+            playlist.data.open_offline(name)
+            print('Playlist saved offline! Upload on next connection')
 
 
-    def do_create_mood(self, arg):
+    def do_mood(self, arg):
         '''Creates a new mood'''
         args = shlex.split(arg)
         if len(args) == 0:
             print("** No name given **")
             return False
-        print('mood here!')
+        print('Not yet implemented')
 
 
     def do_show(self, arg):
-        """Prints an instance as a string based on the class and id"""
+        """Prints out all cached song data"""
         args = shlex.split(arg)
         if len(args) == 0:
-            print("** class name missing **")
-            return False
+            playlist.data.show_saved()
 
-    def do_new_user(self, arg):
-        """Deletes an instance based on the class and id"""
-        args = shlex.split(arg)
-        if len(args) == 0:
-            print("** class name missing **")
 
-    def do_all(self, arg):
-        """Prints string representations of instances"""
-        args = shlex.split(arg)
+    # def do_new_user(self, arg):
+    #     """Deletes an instance based on the class and id"""
+    #     args = shlex.split(arg)
+    #     if len(args) == 0:
+    #         print("** class name missing **")
 
-    def do_update(self, arg):
+    def do_sync(self, arg):
         """Updates saved local data"""
         args = shlex.split(arg)
-        print('Updating saved data')
+
+        playlist.auth.network_test()
+        if not playlist.auth.network_status:
+            return
+        while True:
+            sync = input('Sync data[Y/N]? ').lower()
+            if sync != 'y' and sync != 'n' and sync != '':
+                print('Please choose Y or N')
+                continue
+            break
+        if sync == 'n':
+            return
+        local_playlists = playlist.data.open_offline(None)
+        if len(local_playlists) != 0: #type: ignore (should only return a list here)
+            print('Uploading local playlists')
+            for i in local_playlists: #type: ignore (same reason as above)
+                playlist.data.upload_new_playlist(i)
+            print('Finished uploading local playlists')
+
+        print('Updating saved data...')
         if len(args) != 0:
             playlist_id = playlist.get_playlist_id(args[0])
-            playlist.update(playlist_id, args[0])
+            playlist.data.update(playlist_id, args[0])
         else:
-            playlist.update()
-        print('Finished updating')
+            playlist.data.update()
+        print('Finished updating saved data')
+        print('Sync Complete!')
 
 
 if __name__ == '__main__':
+    if playlist.auth.work_status == 'n':
+        exit()
     VCCommand().cmdloop()
