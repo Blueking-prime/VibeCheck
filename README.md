@@ -2,7 +2,7 @@
 
 The project helps create Spotify playlists according to specific moods. It's designed for every music lover. From those who don’t want to have to get out of the shower because that one track comes on, or those who want to focus on their workout without having to skip through the non-hype songs. The app is designed to specifically use the user's own saved tracks and not just a collection of tracks that Spotify recommends.
 
-[Aricle on linked in](https://www.linkedin.com/posts/nnamdi-anyanwu-719179245_python-project-github-activity-7019107102174388224-bKaN?utm_source=share&utm_medium=member_desktop)
+[Aricle on LinkedIn](https://www.linkedin.com/posts/nnamdi-anyanwu-719179245_python-project-github-activity-7019107102174388224-bKaN?utm_source=share&utm_medium=member_desktop)
 
 ## Features
 
@@ -32,7 +32,7 @@ This project is developed/tested using python3 (version 3.11.1)
 
 ## File Descriptions
 
-### `/Scripts/` directory contains Python scripts used for this project
+### `Scripts/` directory contains Python scripts used for this project
 
 [console.py](/Scripts/console.py) - the console contains the entry point of the command interpreter.
 List of commands this console current supports:
@@ -53,7 +53,7 @@ List of commands this console current supports:
 
 [playlist.py](/Scripts/playlist.py) - Handles playlist creation and manipulation
 
-### `/Data/` directory contains File Storage and local data as JSON
+### `Data/` directory contains File Storage and local data as JSON
 
 [moods.json](/Data/moods.json) - Contains the moods the algorithms use
 
@@ -89,7 +89,7 @@ List of commands this console current supports:
 
 ## Example of use
 
-``` shell
+```
 VibeCheck$./console.py
 (VC) new Demo
 What mood do you want for it? sad
