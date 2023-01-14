@@ -4,7 +4,6 @@ from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 import cred
 
-
 # User permission scopes, append as necessary
 scope = "user-library-read,playlist-modify-private,playlist-modify-public"
 
@@ -15,9 +14,9 @@ def network_test(test_host="8.8.8.8", port=53, timeout=3):
         socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((test_host, port))
         print('Connected to Network')
         # Creates spotify client
-        sp = Spotify(auth_manager=SpotifyOAuth(client_id=cred.client_id,
-                                                    client_secret=cred.client_secret,
-                                                    redirect_uri=cred.redirect_url,
+        sp = Spotify(auth_manager=SpotifyOAuth(client_id=cred.a,
+                                                    client_secret=cred.b,
+                                                    redirect_uri=cred.c,
                                                     scope=scope))
         # Obtains user ID
         network_status = True

@@ -100,8 +100,3 @@ def create_mood(depth):
                    'mode': int(key) - 1}
 
     moods.update({new_mood: details})
-
-
-def detect_temp_playlists():
-    # ! incomplete
-    pass

@@ -159,7 +159,7 @@ def upload_new_playlist(playlist_name):
     with open(f'../Data/New_Playlists/{playlist_name}.json', 'r', encoding='utf-8') as f:
         playlist_info = json.load(f)
 
-    print(f'Creating Playlist - "{playlist_name}" Online')
+    print(f'Creating Playlist - "{playlist_name}" Online...')
     new_playlist = auth.sp.user_playlist_create(auth.user_id,
                                     name=playlist_info['name'],
                                     public=playlist_info['publicity'],
@@ -171,7 +171,7 @@ def upload_new_playlist(playlist_name):
                                     playlist_id=new_playlist['id'],
                                     tracks=playlist_info['track_list'])
 
-        print(f'Here\'s this link: {new_playlist["external_urls"]["spotify"]}')
+        print(f'Here\'s the link: {new_playlist["external_urls"]["spotify"]}')
         remove(f'../Data/New_Playlists/{playlist_name}.json')
     else:
         print('Something went wrong and the songs couldn\'t be added')
